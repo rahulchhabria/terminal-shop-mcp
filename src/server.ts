@@ -11,7 +11,7 @@ app.use(express.json()); // Parse JSON bodies
 
 // --- MCP Root Endpoint --- (/mcp)
 // Provides information about the available actions
-app.post('/mcp', (req: Request, res: Response) => {
+app.get('/mcp', (req: Request, res: Response) => {
     // In a full MCP implementation, this endpoint might require specific validation
     // For now, we'll return a list of available actions
     res.json({
@@ -105,6 +105,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 // Start Server
 app.listen(port, () => {
     console.log(`MCP Server listening at http://localhost:${port}`);
-    console.log(`Root MCP endpoint: POST http://localhost:${port}/mcp`);
+    console.log(`Root MCP endpoint: GET http://localhost:${port}/mcp`);
     console.log(`Actions available at: POST http://localhost:${port}/mcp/actions/{actionName}`);
 }); 
